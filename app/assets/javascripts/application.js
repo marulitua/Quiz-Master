@@ -11,6 +11,15 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require lib/underscore
+//= require lib/backbone
+//= require lib/marionette
+//= require lib/backbone.localStorage
+//= require backend/app
+//= require backend/models/question
+//= require backend/collections/questions
+//= require backend/views/question
+//= require backend/views/questions
+//= require backend/views/questionForm
+//= require backend/controller
+//= require backend/router

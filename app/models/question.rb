@@ -2,7 +2,7 @@ class Question < ActiveRecord::Base
   validates :question, presence: true
   validates :answer, presence: true
 
-  scope :all_published, -> { where("published_at IS NOT NULL")}
+  scope :all_published, -> { where("published_at IS NOT NULL and deleted_at IS NULL")}
 
   def destroy
     self.update_attributes(deleted_at: DateTime.current)
@@ -14,6 +14,10 @@ class Question < ActiveRecord::Base
 
   def deleted?
     self.deleted_at.present?
+  end
+
+  def set_published_at
+    self.published_at = DateTime.current
   end
 
   def guess(user_input)
@@ -29,8 +33,12 @@ class Question < ActiveRecord::Base
 
   private
     def sanitize(input)
-      full_sanitizer = Rails::Html::FullSanitizer.new
-      full_sanitizer.sanitize(input.strip).strip.downcase
+      if input.nil?
+        ""
+      else
+        full_sanitizer = Rails::Html::FullSanitizer.new
+        full_sanitizer.sanitize(input.strip).strip.downcase
+      end
     end
 
     def is_match?(to_match = nil)
