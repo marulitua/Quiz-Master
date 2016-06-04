@@ -1,0 +1,1 @@
+json.(question, :id, :question, :answer, :published_at)

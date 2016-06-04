@@ -1,1 +1,0 @@
-json.(question, :id, :question, :answer)
