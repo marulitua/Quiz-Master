@@ -9,7 +9,7 @@ resource 'Questions' do
     FactoryGirl.create :question, published_at: DateTime.current, deleted_at: DateTime.current + 1.days
   end
 
-  get 'api/v1/user/questions' do
+  get 'api/v1/frontend/questions' do
     example 'List of questions' do
       do_request
 

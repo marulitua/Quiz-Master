@@ -18,6 +18,7 @@
 //= require backend/app
 //= require backend/models/question
 //= require backend/collections/questions
+//= require backend/views/home
 //= require backend/views/question
 //= require backend/views/questions
 //= require backend/views/questionForm

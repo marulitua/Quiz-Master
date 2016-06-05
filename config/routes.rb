@@ -2,10 +2,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1, defaults: { format: 'json'} do
-      namespace :admin do
+      namespace :backend do
         resources :questions
       end
-      namespace :user do
+      namespace :frontend do
         resources :questions do
           member do
             patch  :guess
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: "application#index"
+  get "/admin", to: 'backend#index', as: 'admin_backend'
+  root to: "frontend#index", as: 'main_home'
 
 end

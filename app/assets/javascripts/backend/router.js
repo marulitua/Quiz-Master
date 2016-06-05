@@ -4,7 +4,7 @@ QuestionManager.Router = Marionette.AppRouter.extend({
   },
 
   home: function() {
-    this.navigate('questions', {
+    this.navigate('home', {
       trigger: true,
       replace: true
     });

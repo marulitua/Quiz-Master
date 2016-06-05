@@ -1,6 +1,6 @@
 require 'api_helper'
 
-RSpec.describe Api::V1::Admin::QuestionsController do
+RSpec.describe Api::V1::Backend::QuestionsController do
   describe 'POST create' do
     let :params do
       {

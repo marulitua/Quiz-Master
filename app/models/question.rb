@@ -3,6 +3,7 @@ class Question < ActiveRecord::Base
   validates :answer, presence: true
 
   scope :all_published, -> { where("published_at IS NOT NULL and deleted_at IS NULL")}
+  scope :all_available, -> { where("deleted_at IS NULL")}
 
   def destroy
     self.update_attributes(deleted_at: DateTime.current)

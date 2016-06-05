@@ -6,12 +6,26 @@ QuestionManager.Controller = Marionette.Controller.extend({
 
     this._questions.fetch();
 
-    if (this._questions.isEmpty()) {
-      this._createSampleData();
-    }
+    // if (this._questions.isEmpty()) {
+      // this._createSampleData();
+    // }
+  },
+
+  showHome: function() {
+    console.log("We are home");
+
+    var homeView = new QuestionManager.Views.Home();
+
+    console.log(homeView);
+
+    QuestionManager.mainRegion.show(homeView);
+
+    this._router.navigate('home');
   },
 
   showQuestions: function() {
+
+    this._questions.fetch();
 
     console.log('Showing questions....', this._questions)
 
@@ -20,8 +34,8 @@ QuestionManager.Controller = Marionette.Controller.extend({
     });
 
     this.listenTo(questionsView, 'addQuestion:clicked', this.newQuestion);
-    this.listenTo(questionsView, 'childview:delete:clicked', function(questionView) {
-      questionView.model.destroy();
+    this.listenTo(questionsView, 'childview:delete:clicked', function(questionView, args) {
+      args.model.destroy();
     });
     this.listenTo(questionsView, 'childview:edit:clicked', function(questionView) {
       this.editQuestion(questionView.model.id);

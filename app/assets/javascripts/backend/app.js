@@ -18,6 +18,7 @@ QuestionManager.addInitializer(function(data) {
       });
 
       router.processAppRoutes(controller, {
+        'home': 'showHome',
         'questions': 'showQuestions',
         'questions/new': 'newQuestion',
         'questions/edit/:id': 'editQuestion'

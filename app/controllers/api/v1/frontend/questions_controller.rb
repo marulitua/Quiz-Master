@@ -1,4 +1,4 @@
-class Api::V1::User::QuestionsController < Api::V1::BaseController
+class Api::V1::Frontend::QuestionsController < Api::V1::BaseController
   def index
     @questions = Question.all_published
   end
