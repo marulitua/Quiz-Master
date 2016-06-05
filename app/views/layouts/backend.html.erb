@@ -6,14 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>QuizMaster</title>
   <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'backend', media: 'all', 'data-turbolinks-track' => true %>
 </head>
 
 <body>
 
   <%= yield %>
 
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'backend', 'data-turbolinks-track' => true %>
 
   <script>
     $(function() {

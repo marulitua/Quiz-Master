@@ -11,16 +11,20 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-sprockets
 //= require lib/underscore
 //= require lib/backbone
+//= require lib/backbone.picky
 //= require lib/marionette
-//= require lib/backbone.localStorage
-//= require backend/app
-//= require backend/models/question
-//= require backend/collections/questions
-//= require backend/views/home
-//= require backend/views/question
-//= require backend/views/questions
-//= require backend/views/questionForm
-//= require backend/controller
-//= require backend/router
+//= require frontend/app
+//= require frontend/apps/header/list/list_controller
+//= require frontend/apps/header/list/list_view
+//= require frontend/entities/header
+//= require frontend/apps/header/header_app
+//= require frontend/apps/home/show/show_controller
+//= require frontend/apps/home/show/show_view
+//= require frontend/apps/home/home_app
+//= require frontend/apps/about/show/show_controller
+//= require frontend/apps/about/show/show_view
+//= require frontend/apps/about/about_app
+//= require frontend/entities/question
