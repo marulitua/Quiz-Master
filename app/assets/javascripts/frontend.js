@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
+//= require bootstrap-wysihtml5
 //= require lib/underscore
 //= require lib/backbone
 //= require lib/backbone.picky
@@ -28,3 +29,9 @@
 //= require frontend/apps/about/show/show_view
 //= require frontend/apps/about/about_app
 //= require frontend/entities/question
+//= require frontend/apps/game/question/question_controller
+//= require frontend/apps/game/question/question_view
+//= require frontend/entities/guess
+//= require frontend/apps/game/summary/summary_controller
+//= require frontend/apps/game/summary/summary_view
+//= require frontend/apps/game/game_app

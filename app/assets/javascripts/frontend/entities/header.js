@@ -1,4 +1,4 @@
-Quiz.module("Entities", function(Entities, Quiz, Backbone, Marionette, $, _){
+Quiz.module('Entities', function(Entities, Quiz, Backbone, Marionette, $, _){
   Entities.Header = Backbone.Model.extend({
     initialize: function(){
       var selectable = new Backbone.Picky.Selectable(this);
@@ -17,8 +17,8 @@ Quiz.module("Entities", function(Entities, Quiz, Backbone, Marionette, $, _){
 
   var initializeHeaders = function(){
     Entities.headers = new Entities.HeaderCollection([
-      { name: "Home", url: "", navigationTrigger: "home" },
-      { name: "About", url: "about", navigationTrigger: "about:show" }
+      { name: 'Home', url: '', navigationTrigger: 'home' },
+      { name: 'About', url: 'about', navigationTrigger: 'about:show' }
     ]);
   };
 
@@ -31,7 +31,7 @@ Quiz.module("Entities", function(Entities, Quiz, Backbone, Marionette, $, _){
     }
   };
 
-  Quiz.reqres.setHandler("header:entities", function(){
+  Quiz.reqres.setHandler('header:entities', function(){
     return API.getHeaders();
   });
 });

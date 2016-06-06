@@ -17,35 +17,12 @@ QuestionManager.addInitializer(function(data) {
         mainRegion: this.mainRegion
       });
 
-      router.processAppRoutes(controller, {
-        'home': 'showHome',
-        'questions': 'showQuestions',
-        'questions/new': 'newQuestion',
-        'questions/edit/:id': 'editQuestion'
-      });
-
-  // var questions = new QuestionManager.Collections.Questions();
-  // // router = new QuestionManager.Router(),
-  // var mainRegion = this.mainRegion;
-  // questions.fetch({
-  //     success: function(data) {
-  //         console.log(data)
-  //         var router = new QuestionManager.Router(),
-  //         controller = new QuestionManager.Controller({
-  //           questions: data.attributes,
-  //           router: router,
-  //           mainRegion: mainRegion
-  //         });
-
-  //         console.log('router established')
-
-  //         router.processAppRoutes(controller, {
-  //           'questions': 'showQuestions',
-  //           'questions/new': 'newQuestion',
-  //           'questions/edit/:id': 'editQuestion'
-  //         });
-  //     }
-  // });
+  router.processAppRoutes(controller, {
+    'home': 'showHome',
+    'questions': 'showQuestions',
+    'questions/new': 'newQuestion',
+    'questions/edit/:id': 'editQuestion'
+  });
 });
 
 QuestionManager.on('start', function(options){

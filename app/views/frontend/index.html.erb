@@ -13,7 +13,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" href="#">Alpha Trivia</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -30,18 +30,29 @@
 
 <script type="text/template" id="about-message">
   <h1>About this application</h1>
-  <p>This application was designed to accompany you during your learning.</p>
-  <p>Hopefully, it has served you well !</p>
+  <p>This is only a game.</p>
+</script>
+
+<script type="text/template" id="question-tpl">
+  <div class="row">
+    <div class="col-sm-12">
+      <p><%%- question %></p>
+    </div>
+    <div class="col-sm-12">
+      <textarea></textarea>
+    </div>
+    <div class="col-sm-12">
+      <button type="button" class="btn btn-primary btn-lg"><span class="fa fa-check"></span>Submit</button>
+    </div>
+  </div>
 </script>
 
 <script type="text/template" id="tpl-home">
   <div class="play-ground">
-    <div class="card well">
-      <div class="front">Click to flip</div>
-      <div class="back">Yo, what up?</div>
-      <a class="btn btn-block btn-social btn-flickr">
-        <i class="fa fa-3x fa-facebook"></i> Sign in with Flickr
-      </a>
-    </div>
+    <h2>Gonna guess 'em all</h2>
+    <p>
+      <button type="button" class="btn btn-primary btn-lg"><span class="fa fa-play"></span> Start Game</button>
+      <button type="button" class="btn btn-default btn-lg">How To Play</button>
+    </p>
   </div>
 </script>

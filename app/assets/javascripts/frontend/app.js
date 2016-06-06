@@ -9,12 +9,12 @@ Quiz.getCurrentRoute = function() {
   return Backbone.history.fragment;
 };
 
-Quiz.on("before:start", function() {
+Quiz.on('before:start', function() {
   var RegionContainer = Marionette.LayoutView.extend({
-    el: "#app-container",
+    el: '#app-container',
     regions: {
-      header: "#header-region",
-      main: "#main-region"
+      header: '#header-region',
+      main: '#main-region'
     }
   });
 
@@ -23,14 +23,14 @@ Quiz.on("before:start", function() {
 });
 
 
-Quiz.on("start", function(){
+Quiz.on('start', function(){
   if(Backbone.history){
     Backbone.history.start();
 
-    console.log("current route ", this.getCurrentRoute());
+    console.log('current route ', this.getCurrentRoute());
 
-    if(this.getCurrentRoute() === ""){
-      Quiz.trigger("home");
+    if(this.getCurrentRoute() === ''){
+      Quiz.trigger('home');
     }
   }
 });
