@@ -34,13 +34,8 @@ Quiz.module('GameApp.Question', function(Question, Quiz, Backbone, Marionette, $
       }, 0);
     },
     submitAnswer: function(e) {
-      e.preventDefault();
-      var form = Backbone.Syphon.serialize(this);
-
-      var data = this.model.attributes;
-      data.user_answer = form.user_answer;
-      console.log('data', data);
-      Quiz.trigger('game:guess', data);
+      console.log(e);
+      this.trigger('question:next');
     }
   });
 });

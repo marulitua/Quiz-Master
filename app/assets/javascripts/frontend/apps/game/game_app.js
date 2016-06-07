@@ -30,6 +30,29 @@ Quiz.module('GameApp', function(GameApp, Quiz, Backbone, Marionette, $, _){
     API.endGame();
   });
 
+  Quiz.on('game:guess', function(data) {
+
+    GameApp.Question.Controller.showQuestion();
+    // somewhere else in the application, use the command
+    // --------------------------------------------------
+
+    var signForm = Backbone.AjaxCommands.get("guessQuestion");
+
+    signForm.on("success", function(response){
+      // handle success here
+      console.log('response', response);
+    });
+
+    signForm.on("error", function(response){
+      // handle failure here
+      console.log('server error');
+    });
+
+    // execute the command and send this data with it
+    signForm.execute(data);
+
+  });
+
   GameApp.on('start', function(){
     GameApp.Question.Controller.initialize();
     new GameApp.Router({

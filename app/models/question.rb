@@ -23,7 +23,6 @@ class Question < ActiveRecord::Base
 
   def guess(user_input)
     @user_guess = sanitize(user_input)
-
     if answer.is_i?
       answer_in_words = answer.to_i.to_words(remove_hyphen: true)
       is_match? or is_match? answer_in_words

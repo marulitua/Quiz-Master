@@ -33,20 +33,6 @@
   <p>This is only a game.</p>
 </script>
 
-<script type="text/template" id="question-tpl">
-  <div class="row">
-    <div class="col-sm-12">
-      <p><%%- question %></p>
-    </div>
-    <div class="col-sm-12">
-      <textarea></textarea>
-    </div>
-    <div class="col-sm-12">
-      <button type="button" class="btn btn-primary btn-lg"><span class="fa fa-check"></span>Submit</button>
-    </div>
-  </div>
-</script>
-
 <script type="text/template" id="tpl-home">
   <div class="play-ground">
     <h2>Gonna guess 'em all</h2>
@@ -55,4 +41,22 @@
       <button type="button" class="btn btn-default btn-lg">How To Play</button>
     </p>
   </div>
+</script>
+
+<script type="text/template" id="question-tpl">
+  <div class="row">
+    <div class="col-sm-12">
+      <p><%%- question %></p>
+    </div>
+    <div class="col-sm-12">
+      <textarea id="user_answer" name="user_answer"></textarea>
+    </div>
+    <div class="col-sm-12">
+      <button type="button" class="btn btn-primary btn-lg"><span class="fa fa-check"></span>Submit</button>
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="no-more-question">
+  <p>No more question</p>
 </script>

@@ -8,8 +8,8 @@ class Api::V1::Frontend::QuestionsController < Api::V1::BaseController
     if @question.nil? || @question.published_at.nil? || !@question.deleted_at.nil?
       render nothing: true, status: 404
     else
-      if @question.guess params[:answer]
-        render status: 200, json: 
+      if @question.guess permitted_params[:user_answer]
+        render status: 200, json:
           {
             "result": true
           }
@@ -21,7 +21,7 @@ class Api::V1::Frontend::QuestionsController < Api::V1::BaseController
 
   private
     def permitted_params
-      params.permit :question,
-                    :answer
+      params.permit :question_id,
+                    :user_answer
     end
 end

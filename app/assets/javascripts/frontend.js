@@ -16,6 +16,8 @@
 //= require lib/underscore
 //= require lib/backbone
 //= require lib/backbone.picky
+//= require lib/backbone.syphon
+//= require lib/backbone.ajaxcommands
 //= require lib/marionette
 //= require frontend/app
 //= require frontend/apps/header/list/list_controller
@@ -34,4 +36,5 @@
 //= require frontend/entities/guess
 //= require frontend/apps/game/summary/summary_controller
 //= require frontend/apps/game/summary/summary_view
+//= require frontend/common/ajax
 //= require frontend/apps/game/game_app
