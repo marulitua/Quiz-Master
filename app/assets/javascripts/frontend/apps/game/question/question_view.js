@@ -1,12 +1,15 @@
 Quiz.module('GameApp.Question', function(Question, Quiz, Backbone, Marionette, $, _){
   Question.View = Marionette.ItemView.extend({
     template: '#question-tpl',
-    className: 'col-md-6 card',
+    className: 'col-md-6',
     initialize: function(question) {
       this.model = question;
     },
+    events: {
+      'click button': 'submitAnswer'
+    },
     onDomRefresh: function() {
-      // debugger;
+
       $('textarea').wysihtml5({
         toolbar: {
           'font-styles': false,
@@ -23,6 +26,16 @@ Quiz.module('GameApp.Question', function(Question, Quiz, Backbone, Marionette, $
           'link': false
         }
       });
+
+      console.log('onRender addClass flipped');
+      var el = this.$el;
+      setTimeout(function() {
+        el.addClass('card flipped');
+      }, 0);
+    },
+    submitAnswer: function(e) {
+      console.log(e);
+      alert('Answer submited');
     }
   });
 });
