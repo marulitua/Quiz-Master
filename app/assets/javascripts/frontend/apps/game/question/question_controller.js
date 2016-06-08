@@ -8,7 +8,8 @@ Quiz.module('GameApp.Question', function(Question, Quiz, Backbone, Marionette, $
       }
 
       if(this.questions.length == 0) {
-        this.showEnd();
+        this.showSummary();
+        return;
       }
 
       var current_question = this.questions.pop();
@@ -17,14 +18,18 @@ Quiz.module('GameApp.Question', function(Question, Quiz, Backbone, Marionette, $
       Quiz.regions.main.show(view);
 
       view.on("question:guess", function(data){
-        Question.Controller.showQuestion();
         Question.Controller.checkAnswer(data);
+        Question.Controller.showQuestion();
       });
     },
-    showEnd:function(){
-      console.log('no more question');
+    showSummary:function(){
+      if(this.guesses === undefined) {
+        Quiz.navigate('#');
+        return;
+      }
 
-      return;
+      var guesses = Question.Controller.guesses;
+      Quiz.GameApp.trigger('game:summary', guesses);
     },
     checkAnswer:function(data) {
       var signForm = Backbone.AjaxCommands.get("guessQuestion");
@@ -34,7 +39,6 @@ Quiz.module('GameApp.Question', function(Question, Quiz, Backbone, Marionette, $
         // console.log('response', response);
         var guess = _.extend(data, response);
         Question.Controller.guesses.push(guess);
-        console.log('this guess', Question.Controller.guesses);
       });
 
       signForm.on("error", function(response){
@@ -44,6 +48,7 @@ Quiz.module('GameApp.Question', function(Question, Quiz, Backbone, Marionette, $
 
       // execute the command and send this data with it
       signForm.execute(data);
+
     },
     initialize: function() {
       var guesses = Quiz.request('guess:entities');

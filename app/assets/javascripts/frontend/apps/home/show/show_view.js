@@ -6,10 +6,7 @@ Quiz.module('HomeApp.Show', function(Show, Quiz, Backbone, Marionette, $, _){
     },
 
     redirectGame: function(e) {
-      // e.preventDefault();
       Quiz.trigger('game:start');
-      console.log('startGame');
-      // Quiz.navigate('start_game');
     }
   });
 });

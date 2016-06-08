@@ -1,29 +1,26 @@
 Quiz.module('GameApp', function(GameApp, Quiz, Backbone, Marionette, $, _){
   GameApp.Router = Marionette.AppRouter.extend({
     appRoutes: {
-      'start_game': 'startGame',
-      'end_game': 'summaryGame',
+      'play_ground': 'startGame'
     }
   });
 
   var API = {
     startGame: function(){
       GameApp.Question.Controller.showQuestion();
-      // Quiz.execute('set:active:header', 'home');
     },
-    summaryGame: function() {
-      GameApp.Summary.Controller.showSummary();
+    showSummary: function(data) {
+      GameApp.Summary.Controller.showSummary(data);
     }
   };
 
   Quiz.on('game:start', function(){
-    Quiz.navigate('start_game');
+    Quiz.navigate('play_ground');
     API.startGame();
   });
 
-  Quiz.on('game:end', function(){
-    Quiz.navigate('end_game');
-    API.endGame();
+  GameApp.on('game:summary', function(data){
+    API.showSummary(data);
   });
 
   GameApp.on('start', function(){

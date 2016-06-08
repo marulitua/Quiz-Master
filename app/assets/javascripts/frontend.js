@@ -35,6 +35,7 @@
 //= require frontend/apps/game/question/question_view
 //= require frontend/entities/guess
 //= require frontend/apps/game/summary/summary_controller
+//= require frontend/apps/game/summary/guess_view
 //= require frontend/apps/game/summary/summary_view
 //= require frontend/common/ajax
 //= require frontend/apps/game/game_app

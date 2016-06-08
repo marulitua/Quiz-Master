@@ -1,7 +1,7 @@
 Quiz.module('GameApp.Question', function(Question, Quiz, Backbone, Marionette, $, _){
   Question.View = Marionette.ItemView.extend({
     template: '#question-tpl',
-    className: 'col-md-6',
+    className: 'col-md-6 card',
     initialize: function(question) {
       this.model = question;
     },
@@ -28,12 +28,17 @@ Quiz.module('GameApp.Question', function(Question, Quiz, Backbone, Marionette, $
 
       var el = this.$el;
       setTimeout(function() {
-        el.addClass('card flipped');
+        el.addClass('flipped');
       }, 0);
     },
     submitAnswer: function(e) {
       e.preventDefault();
       var form = Backbone.Syphon.serialize(this);
+
+      if(form.user_answer === undefined || form.user_answer === '') {
+        alert('please fill your answer');
+        return;
+      }
 
       var data = this.model.attributes;
       data.user_answer = form.user_answer;
