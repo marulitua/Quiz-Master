@@ -18,7 +18,6 @@ Quiz.module('HeaderApp.List', function(List, Quiz, Backbone, Marionette, $, _){
 
     setActiveHeader: function(headerUrl){
       var links = Quiz.request('header:entities');
-      console.log('headerUrl = '+headerUrl);
       var headerToSelect = links.find(function(header){ return header.get('url') === headerUrl; });
       headerToSelect.select();
       links.trigger('reset');

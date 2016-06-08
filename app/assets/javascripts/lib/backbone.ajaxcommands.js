@@ -43,8 +43,6 @@ Backbone.AjaxCommands = (function (Backbone, $, _) {
 
             this.trigger("before:execute");
 
-            console.log('config', config);
-
             var request = $.ajax(config);
             request.done(function (response) {
                 that.trigger("success", response);
@@ -61,7 +59,6 @@ Backbone.AjaxCommands = (function (Backbone, $, _) {
 
         getAjaxConfig: function (options, data) {
             var url = this.getUrl(options, data);
-            console.log('url got', url);
             var ajaxConfig = {
                 type: "GET",
                 dataType: "JSON",
@@ -82,10 +79,8 @@ Backbone.AjaxCommands = (function (Backbone, $, _) {
             _.each(_.keys(data), function(i) {
                 if(!_.isFunction(i) && data[i] != '' && data[i] != null) {
                     url = url.replace('{'+i+'}', data[i]);
-                    console.log(url)
                 }
             });
-            console.log('final url = '+url);
 
             return url;
         }

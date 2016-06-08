@@ -2,16 +2,20 @@ Quiz.module('Entities', function(Entities, Quiz, Backbone, Marionette, $, _) {
   Entities.Guess = Backbone.Model.extend({
      defaults: {
       question_id: null,
+      question: '',
+      answer: '',
       user_answer: null,
-      is_true: false
+      is_true: false,
     },
-    initialize: function(question, user_answer){
-      console.log('Guess model has been initialized.', question, user_answer);
-      this.attributes.question_id = question.id;
-      this.attributes.user_answer = user_answer;
-    },
-    check_answer: function() {
-
+    initialize: function(form, response){
+      if(form.id != response.id) {
+        console.log('something\'s wrong');
+      }
+      this.attributes.question_id = form.id;
+      this.attributes.question = form.question;
+      this.attributes.answer = response.answer;
+      this.attributes.user_answer = form.user_answer;
+      this.attributes.is_true = 'true' === response.result;
     }
   });
 

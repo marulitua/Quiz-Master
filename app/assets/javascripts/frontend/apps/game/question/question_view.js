@@ -9,7 +9,6 @@ Quiz.module('GameApp.Question', function(Question, Quiz, Backbone, Marionette, $
       'click button': 'submitAnswer'
     },
     onDomRefresh: function() {
-
       this.$el.find('textarea').wysihtml5({
         toolbar: {
           'font-styles': false,
@@ -27,7 +26,6 @@ Quiz.module('GameApp.Question', function(Question, Quiz, Backbone, Marionette, $
         }
       });
 
-      console.log('onRender addClass flipped');
       var el = this.$el;
       setTimeout(function() {
         el.addClass('card flipped');
@@ -39,8 +37,7 @@ Quiz.module('GameApp.Question', function(Question, Quiz, Backbone, Marionette, $
 
       var data = this.model.attributes;
       data.user_answer = form.user_answer;
-      console.log('data', data);
-      Quiz.trigger('game:guess', data);
+      this.trigger('question:guess', data);
     }
   });
 });

@@ -6,7 +6,6 @@ Quiz.module('HeaderApp', function(Header, Quiz, Backbone, Marionette, $, _){
   };
 
   Quiz.commands.setHandler('set:active:header', function(name){
-    console.log('set header '+name)
     Quiz.HeaderApp.List.Controller.setActiveHeader(name);
   });
 
