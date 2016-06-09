@@ -2,7 +2,7 @@ Quiz.module('GameApp.Summary', function(Summary, Quiz, Backbone, Marionette, $, 
   Summary.SummaryView = Marionette.CompositeView.extend({
     template: '#tpl-summary',
     childView: Summary.GuessView,
-    itemViewContainer: '.questions-container',
+    childViewContainer: 'ul',
     triggers: {
       'click .add-question-btn': 'addQuestion:clicked'
     }

@@ -40,6 +40,7 @@ group :development, :test do
   gem 'byebug'
   gem 'eco'
   gem 'compass-rails'
+  gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'rspec_api_documentation'
   gem 'database_cleaner'

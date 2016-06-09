@@ -18,8 +18,8 @@ Quiz.module('GameApp.Question', function(Question, Quiz, Backbone, Marionette, $
       Quiz.regions.main.show(view);
 
       view.on("question:guess", function(data){
-        Question.Controller.checkAnswer(data);
         Question.Controller.showQuestion();
+        Question.Controller.checkAnswer(data);
       });
     },
     showSummary:function(){
@@ -32,23 +32,23 @@ Quiz.module('GameApp.Question', function(Question, Quiz, Backbone, Marionette, $
       Quiz.GameApp.trigger('game:summary', guesses);
     },
     checkAnswer:function(data) {
-      var signForm = Backbone.AjaxCommands.get("guessQuestion");
+      var isTrue = Backbone.AjaxCommands.get("guessQuestion");
 
-      signForm.on("success", function(response){
+      isTrue.on("success", function(response){
         // handle success here
         // console.log('response', response);
         var guess = _.extend(data, response);
         Question.Controller.guesses.push(guess);
+        console.log('this guess', Question.Controller.guesses);
       });
 
-      signForm.on("error", function(response){
+      isTrue.on("error", function(response){
         // handle failure here
         console.log('server error');
       });
 
       // execute the command and send this data with it
-      signForm.execute(data);
-
+      isTrue.execute(data);
     },
     initialize: function() {
       var guesses = Quiz.request('guess:entities');

@@ -59,18 +59,24 @@
 
 
 <script type="text/template" id="tpl-guess">
-  <div class="row">
-    <div class="col-sm-12">
-      <p><%%- question %></p>
-      <p><%%- answer %></p>
-      <div class="user_answer"></div>
-      <p><%%- is_true %></p>
-    </div>
-  </div>
+  <h3><%%- question %></h3>
+
+  <%% if (is_true) { %>
+    <div class="user_answer"></div>
+  <%% } %>
+
+  <%% if (!is_true) { %>
+    <p><%%- answer %></p>
+    <s><div class="user_answer"></div></s>
+  <%% } %>
+
 </script>
 
 <script type="text/template" id="tpl-summary">
-  <ul class="media-list row questions-container"></ul>
+  <div class="row">
+    <div class="col-md-12 summary"></div>
+    <ul class="col-md-12 items list-unstyled"></ul>
+  </div>
 </script>
 
 <script type="text/template" id="no-more-question">

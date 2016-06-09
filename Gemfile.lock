@@ -116,16 +116,18 @@ GEM
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
     mime-types (2.99.2)
-    mini_portile2 (2.0.0)
+    mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
     mustache (1.0.3)
     netrc (0.11.0)
-    nokogiri (1.6.7.2)
-      mini_portile2 (~> 2.0.0.rc2)
+    nokogiri (1.6.8)
+      mini_portile2 (~> 2.1.0)
+      pkg-config (~> 1.1.7)
     numbers_and_words (0.10.5)
       activesupport
       i18n
+    pkg-config (1.1.7)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -174,6 +176,14 @@ GEM
       rspec-support (~> 3.4.0)
     rspec-mocks (3.4.1)
       diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-rails (3.4.2)
+      actionpack (>= 3.0, < 4.3)
+      activesupport (>= 3.0, < 4.3)
+      railties (>= 3.0, < 4.3)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
     rspec_api_documentation (4.8.0)
@@ -235,6 +245,7 @@ DEPENDENCIES
   jquery-rails
   numbers_and_words
   rails (= 4.2.4)
+  rspec-rails
   rspec_api_documentation
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

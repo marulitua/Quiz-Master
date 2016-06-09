@@ -7,15 +7,12 @@ Quiz.module('Entities', function(Entities, Quiz, Backbone, Marionette, $, _) {
       user_answer: null,
       is_true: false,
     },
-    initialize: function(form, response){
-      if(form.id != response.id) {
-        console.log('something\'s wrong');
-      }
-      this.attributes.question_id = form.id;
-      this.attributes.question = form.question;
-      this.attributes.answer = response.answer;
-      this.attributes.user_answer = form.user_answer;
-      this.attributes.is_true = 'true' === response.result;
+    initialize: function(data){
+      this.attributes.question_id = data.id;
+      this.attributes.question = data.question;
+      this.attributes.answer = data.answer;
+      this.attributes.user_answer = data.user_answer;
+      this.attributes.is_true = ('true' === data.result);
     }
   });
 

@@ -47,3 +47,26 @@ body {
 .card.flipped {
   transform: rotate(360deg);
 }
+
+.card-guess {
+  border-radius: 10px;
+  margin-top: 10%;
+  text-align: center;
+  margin: 0 5px;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+.card-guess.true {
+  background: #51a258;;
+}
+
+.card-guess.false {
+  background: #a25151;
+}
+
+@media (min-width: 991px) {
+  .card-guess {
+    width: 32.4%;
+  }
+}
